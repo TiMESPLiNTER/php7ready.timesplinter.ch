@@ -1,0 +1,26 @@
+{
+    /* Which class:method should handle errors */
+    "handler": "ch:timesplinter:core:ErrorHandler:",
+
+	"report_level": 32767,
+
+    /* here you can add controllers for each error code */
+    /*"controller":  "ch:timesplinter:controller:StaticPageController:getErrorPage",*/
+
+    "messages": {
+        "404": {
+            "en": "We're sorry but we couldn't find this page on our server.",
+            "de": "Es tut uns leid, aber wir konnten die angeforderte Seite nicht finden."
+        },
+
+        "500": {
+            "en": "An internal server error occured. It's our fault! We apologize!",
+            "de": "Ein interner Serverfehler ist aufgetreten. Es ist unser Fehler. Wir bitten Sie um Entschuldigung"
+        },
+
+        "default": {
+            "en": "An unknown error occured. We're so sorry about that!",
+            "de": "Ein unbekannter Fehler ist aufgetreten. Wir bitten Sie um Entschuldigung!"
+        }
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "dev": {
+	    "debuglogger": {
+		    "type": "file",
+		    "logfilepath": "${site_root}logs/dev.debug.log",
+		    "pattern": "[%LEVEL%] %TIMESTAMP%@%CLASSNAME% - %MESSAGE%",
+		    "log_level": "debug",
+		    "email_level": "",
+		    "email_address": "error@example.com",
+		    "maxfilesize": 0
+	    },
+
+	    "otherlogger": {
+		    "type": "file",
+		    "logfilepath": "${site_root}logs/dev.log",
+		    "pattern": "[%LEVEL%] %TIMESTAMP%@%CLASSNAME% - %MESSAGE%",
+		    "log_level": "debug,info,warn,error,fatal",
+		    "email_level": "",
+		    "email_address": "error@example.com",
+		    "maxfilesize": 0
+	    }
+    },
+
+    "live": {
+	    "myfilelogger": {
+	        "type": "file",
+	        "logfilepath": "${site_root}logs/live.log",
+	        "pattern": "[%LEVEL%] %TIMESTAMP%@%CLASS% - %MESSAGE%",
+	        "log_level": "info,warn,error,fatal",
+	        "email_level": "error,fatal",
+	        "email_address": "error@example.com",
+	        "maxfilesize": 0
+	    }
+    }
+}

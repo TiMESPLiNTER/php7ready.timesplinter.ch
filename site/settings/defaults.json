@@ -1,0 +1,12 @@
+{
+    "localization": "en_US",
+    "timezone": "America/Los_Angeles",
+	"environment": "dev",
+	"domain": {
+		"localization": "browser",
+		"timezone": "Europe/Zurich", /* locale, geolocate or valid timezone */
+		"environment": "dev",
+		"template": "default",
+		"startroute": "/"
+	}
+}

@@ -1,0 +1,118 @@
+/* 
+	Document: main.css
+	Created on: 18.08.2012, 20:03:34
+	Author: Pascal Muenst
+	Description: Purpose of the stylesheet follows.
+*/
+/* =webfont
+*******************************************************************************/
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,600,800');
+@import url('http://fonts.googleapis.com/css?family=Roboto:400,300');
+
+/* =base
+*******************************************************************************/
+html {  
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  overflow-y: scroll;
+}
+
+html, button, input, select, textarea {font-family: sans-serif;}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4 {
+	font-family: Roboto, sans-serif;
+	font-weight: 300;
+}
+
+.wrapper {
+	padding: 40px 20px;
+}
+
+.wrapper-header {
+	background: #8892bf;
+}
+
+.wrapper-footer {
+	background: #333;
+}
+
+.header,
+.footer,
+.content {
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+.content {
+	color: #666;
+	margin-bottom: 60px;
+}
+
+.content b {
+	font-weight: 600;
+}
+
+h1 {
+	color: #fff;
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 2.5em;
+	color: #222;
+}
+
+h3 {
+	font-size: 1.8em;
+	color: #444;
+	margin: 60px 0 20px;
+}
+
+h4 {
+	font-size: 1.3em;
+}
+
+p code {
+	background: #eee;
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	padding: 1px 3px;
+}
+
+.listing {
+	display: block;
+	white-space: pre;
+	background: #eee;
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	padding: 20px;
+	margin: 20px 0;
+	overflow: auto;
+}
+
+.footer {
+	color: #888;
+	line-height: 2em;
+}
+
+.footer a {
+	color: #666;
+	text-decoration: none;
+}
+
+/* clearfix */
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {clear: both;}
+.clearfix {zoom: 1;}

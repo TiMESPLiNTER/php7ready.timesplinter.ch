@@ -1,0 +1,13 @@
+{
+	"home": {
+		"title": "Welcome",
+		"description": "This is the start page of this little site",
+		"active": ["overview"]
+	},
+
+    "basic-usage": {
+        "title": "Basic usage",
+        "description": "This is the start page of this little site",
+        "active": ["basic-usage"]
+    }
+}

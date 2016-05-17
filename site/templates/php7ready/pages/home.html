@@ -1,0 +1,39 @@
+<h2>Show your project's PHP 7 readiness!</h2>
+
+<p>You can show and prove the community that your library, framework or whatever PHP project you maintain is already PHP 7 ready with a poser badge in your project's <code>README</code> file.</p>
+
+<p><img src="http://{tst:print var='domain'}/METANETAG/formHandler/badge.svg" alt="The PHP 7 readiness poser badge"></p>
+
+<h3>Get the badge</h3>
+<h4>URL</h4>
+	
+<code class="listing">http://{tst:print var='domain'}/{github-name}/{repo}/badge.svg</code></p>
+
+<h4>Markdown</h4>
+	
+<code class="listing">[![PHP 7 ready](http://{tst:print var='domain'}/{github-name}/{repo}/badge.svg)](https://travis-ci.org/{your-repository})</code>
+
+<p>To get the "supported" badge you need to specify PHP 7 in your <code>.travis.yml</code> file:</p>
+
+<code class="listing">language: php
+
+php:
+  - 7.0 # <-- required (7.0 and higher or 'nightly')
+  - 5.6
+
+# ...</code>
+
+<h4>Adding "7.0" makes my build fail</h4>
+<p>If your code is not yet PHP 7 ready (a.k.a. your PHP 7 job fails) but you want already to prepare it for the <b>PHP 7: supported</b> button just add the following lines at the bottom of your <code>.travis.yml</code> file:</p>
+
+<code class="listing">matrix:
+  allow_failures:
+    - php: 7.0 # or 'nightly' - whatever you specified under the php section
+</code>
+
+<p>This will allow your build to pass even if your PHP 7 job fails. You get the <b>PHP 7: unsupported</b> badge then.</p>
+
+<h3>What does this badge approve?</h3>
+<p><b>This badge approves that your unit tests run successfully on the latest PHP 7 build used by Travis-CI.</b></p>
+<p>If you cover your code properly with unit tests which run successful on the latest build of PHP 7 the possibility is high that your code masters the PHP 7 runtime environment.</p>
+<p>Of course you can run phpunit against zero test cases with zero asserts and get the "PHP 7: Supported" badge. But common!</p>

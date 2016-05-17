@@ -1,0 +1,55 @@
+{
+    "en_US": {
+        "names": [
+            "en_US.UTF-8",
+            "en_US",
+            "english-american"
+        ]
+    },
+
+    "en_EN": {
+        "names": [
+            "en_EN.UTF-8",
+            "en_EN",
+            "english-uk"
+        ],
+        "timezone": "Europe/London"
+    },
+
+    "en": {
+        "names": [
+            "en_US.UTF-8",
+            "en_US",
+            "english-american"
+        ],
+        "timezone": "America/Los_Angeles"
+    },
+
+    "de_DE": {
+       "names": [
+            "de_DE.UTF-8",
+            "de_DE",
+            "german"
+        ],
+        "timezone": "Europe/Berlin"
+    } ,
+
+    "de_CH": {
+        "names": [
+            "de_CH.UTF-8",
+            "de_CH",
+            "german-swiss"
+        ],
+        "timezone": "Europe/Zurich"
+    },
+
+    "de": {
+        "names": [
+            "de_CH.UTF-8",
+            "de_CH",
+            "german-swiss",
+            "swiss"
+        ],
+        "timezone": "Europe/Zurich"
+    }
+}

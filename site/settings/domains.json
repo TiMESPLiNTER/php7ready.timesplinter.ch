@@ -1,0 +1,19 @@
+{
+	"domains": {
+		"localhost": {
+			"localization": "browser",
+			"timezone": "Europe/Zurich",
+			"environment": "dev",
+			"template": "php7ready",
+			"startroute": "/"
+		},
+
+		"php7ready.timesplinter.ch": {
+			"localization": "browser",
+			"timezone": "Europe/Zurich",
+			"environment": "live",
+			"template": "php7ready",
+			"startroute": "/"
+		}
+	}
+}

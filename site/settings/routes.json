@@ -1,0 +1,17 @@
+{
+	"routes": {
+		"home": {
+			"pattern": "/",
+			"methods": {
+				"GET": "timesplinter:php7ready:controller:AppController:getPage"
+			}
+		},
+
+        "badge": {
+            "pattern": "/(.+/.+)/badge.svg",
+            "methods": {
+	            "GET": "timesplinter:php7ready:controller:AppController:actionDisplayBadge"
+            }
+        }
+	}
+}

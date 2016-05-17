@@ -1,0 +1,13 @@
+{
+	"name" : "timesplinter/php7ready",
+	
+	"autoload": {
+		"psr-4": {
+			"timesplinter\\": "site/src/timesplinter/"
+		}
+	},
+	
+	"require": {
+		"timesplinter/ts-framework": "0.2.*"
+	}
+}

@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "cache": "memcached",
+        "pool": [
+            ["127.0.0.1","11211", 10],
+            ["192.168.1.15","11211", 5]
+        ]
+    },
+
+    "live": {
+        "cache": "file",
+        "location": "${site_root}cache/cache.json",
+        "gzip": true
+    }
+}

@@ -1,0 +1,21 @@
+{
+	/* time to keep this settings file (including alle resources) in cache */
+	"@cachetime": 3600,
+	
+	/* include external resources */
+	"@resources": [
+		"domains.json", // all the routes for this site
+		"routes.json", // all the routes for this site
+		"plugins.json" // the plugins to use for this site
+	],
+	
+	"environments": {
+		"dev": {
+			"debug": true
+		},
+		
+		"live": {
+			"debug": false
+		}
+	}
+}
