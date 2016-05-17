@@ -1,6 +1,6 @@
 {
 	"domains": {
-		"localhost": {
+		"php7ready.timesplinter.ch.localhost": {
 			"localization": "browser",
 			"timezone": "Europe/Zurich",
 			"environment": "dev",

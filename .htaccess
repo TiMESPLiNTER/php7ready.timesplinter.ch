@@ -1,5 +1,5 @@
-Action php /cgi-php56/php
-AddHandler php56 .php
+#Action php /cgi-php56/php
+#AddHandler php56 .php
 
 # use modRewrite if active
 <IfModule mod_rewrite.c>
@@ -22,12 +22,6 @@ AddHandler php56 .php
 	RewriteCond %{HTTP:Authorization} !^$
 	RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
 </IfModule>
-
-# common optimizations
-#<IfModule mod_security.c>
-#	SecFilterEngine Off
-#	SecFilterScanPOST Off
-#</IfModule>
 
 # ----------------------------------------------------------------------
 # Better website experience for IE users
