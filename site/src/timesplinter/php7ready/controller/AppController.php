@@ -17,15 +17,29 @@ class AppController extends PageController
 	{
 		$subFolder = StringUtils::afterFirst(getcwd(), $_SERVER['DOCUMENT_ROOT']);
 		
-		return $this->generateHttpResponse(200, $this->view->render('home.html', array(
+		return $this->generateHttpResponse(200, $this->view->render('home.html', [
 			'domain' => $this->core->getHttpRequest()->getHost() . $subFolder
-		)));
+		]));
+	}
+
+	public function redirectOldBadge()
+	{
+		$repositorySlug = $this->route->getParam(0);
+
+		return new HttpResponse(301, null, ['Location' => sprintf('/%s/master/badge.svg', $repositorySlug)]);
 	}
 	
 	public function actionDisplayBadge()
 	{
-		if(($php7Support = $this->determinePHP7Support($this->route->getParam(0))) === -2)
-			throw new HttpException('Repository does not exist on Travis-CI', 404);
+		$repositorySlug = $this->route->getParam(0);
+		$branch = null !== $this->route->getParam(1) ? $this->route->getParam(1) : 'master';
+
+		if(($php7Support = $this->determinePHP7Support($repositorySlug, $branch)) === -2) {
+			throw new HttpException(
+				sprintf('Repository %s with branch %s does not exist on Travis-CI', $repositorySlug, $branch),
+				404
+			);
+		}
 
 		$text = 'unknown';
 		
@@ -37,20 +51,20 @@ class AppController extends PageController
 		
 		$badgeFile = $this->core->getSiteRoot() . 'rsc' . DIRECTORY_SEPARATOR . 'badges' . DIRECTORY_SEPARATOR . 'php7-' . $text . '.svg';
 		
-		return new HttpResponse(200, $badgeFile, array(
+		return new HttpResponse(200, $badgeFile, [
 			'Content-Type' => 'image/svg+xml',
 			'Content-Length' => filesize($badgeFile)
-		), true);
+		], true);
 	}
 
 	/**
 	 * @param string $repository
-	 *
+	 * @param string $branch
 	 * @return int
 	 */
-	protected function determinePHP7Support($repository)
+	protected function determinePHP7Support($repository, $branch)
 	{
-		if(($content = $this->fetchApiData(sprintf('https://api.travis-ci.org/repositories/%s/builds.json', $repository))) === false)
+		if(($content = $this->fetchApiData(sprintf('repos/%s/branches/%s', $repository, $branch))) === false)
 			return -2;
 
 		$json = json_decode($content, true);
@@ -58,9 +72,9 @@ class AppController extends PageController
 		if(count($json) <= 0)
 			return -2;
 
-		$lastBuildId = $json[0]['id'];
+		$lastBuildId = $json['branch']['id'];
 
-		if(($content = $this->fetchApiData(sprintf('https://api.travis-ci.org/builds/%s', $lastBuildId))) === false)
+		if(($content = $this->fetchApiData(sprintf('repos/%s/builds/%s', $repository, $lastBuildId))) === false)
 			return -2;
 
 		$json = json_decode($content, true);
@@ -71,24 +85,24 @@ class AppController extends PageController
 			if(isset($job['config']['php']) === false || ($job['config']['php'] < 7.0 && $job['config']['php'] !== 'nightly'))
 				continue;
 
-			$php7Support = (int)$job['result'];
+			$php7Support = (int) $job['result'];
 			break;
 		}
 
 		return $php7Support;
 	}
 
-	protected function fetchApiData($url)
+	protected function fetchApiData($uri)
 	{
 		$curl = curl_init();
 
-		curl_setopt_array($curl, array(
-			CURLOPT_URL => $url,
+		curl_setopt_array($curl, [
+			CURLOPT_URL => sprintf('https://api.travis-ci.org/%s', $uri),
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_SSL_VERIFYPEER => false,
 			CURLOPT_SSL_VERIFYHOST => false,
 			CURLOPT_ENCODING => ''
-		));
+		]);
 
 		$content = curl_exec($curl);
 
