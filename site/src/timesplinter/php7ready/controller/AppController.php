@@ -32,7 +32,7 @@ class AppController extends PageController
 	public function actionDisplayBadge()
 	{
 		$repositorySlug = $this->route->getParam(0);
-		$branch = null !== $this->route->getParam(1) ? $this->route->getParam(1) : 'master';
+		$branch = $this->route->getParam(1);
 
 		if(($php7Support = $this->determinePHP7Support($repositorySlug, $branch)) === -2) {
 			throw new HttpException(
