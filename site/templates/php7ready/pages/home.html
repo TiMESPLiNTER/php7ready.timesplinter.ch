@@ -7,11 +7,11 @@
 <h3>Get the badge</h3>
 <h4>URL</h4>
 	
-<code class="listing">http://{tst:print var='domain'}/{github-name}/{repo}/badge.svg</code></p>
+<code class="listing">http://{tst:print var='domain'}/{github-name}/{repo}/{branch}/badge.svg</code></p>
 
 <h4>Markdown</h4>
 	
-<code class="listing">[![PHP 7 ready](http://{tst:print var='domain'}/{github-name}/{repo}/badge.svg)](https://travis-ci.org/{your-repository})</code>
+<code class="listing">[![PHP 7 ready](http://{tst:print var='domain'}/{github-name}/{repo}/{branch}/badge.svg)](https://travis-ci.org/{your-repository})</code>
 
 <p>To get the "supported" badge you need to specify PHP 7 in your <code>.travis.yml</code> file:</p>
 
@@ -36,4 +36,4 @@ php:
 <h3>What does this badge approve?</h3>
 <p><b>This badge approves that your unit tests run successfully on the latest PHP 7 build used by Travis-CI.</b></p>
 <p>If you cover your code properly with unit tests which run successful on the latest build of PHP 7 the possibility is high that your code masters the PHP 7 runtime environment.</p>
-<p>Of course you can run phpunit against zero test cases with zero asserts and get the "PHP 7: Supported" badge. But common!</p>
+<p>Of course you can run phpunit against zero test cases with zero assertions and get the "PHP 7: Supported" badge. But common!</p>
